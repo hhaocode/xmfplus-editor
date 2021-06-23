@@ -12,8 +12,6 @@ function XmfplusEditor (options) {
 	if (!options.el) {
 		throw new Error('el is must reuqired')
 	}
-	options = options || {}
-	options.plugins = options.plugins || []
 
 	const mySchema = new Schema({
 		nodes: addListNodes(schema.spec.nodes, "paragraph block*", "block"),
@@ -28,6 +26,6 @@ function XmfplusEditor (options) {
 	})
 }
 
-document.onload = function () {
+window.onload = function () {
 	XmfplusEditor({el: '#editor'})
 }

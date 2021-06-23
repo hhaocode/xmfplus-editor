@@ -6,26 +6,31 @@ import {dropCursor} from "prosemirror-dropcursor"
 import {gapCursor} from "prosemirror-gapcursor"
 import {menuBar} from "prosemirror-menu"
 
+import {buildMenuItems} from "./menu"
+import {buildKeymap} from "./keymap"
 import {buildInputRules} from "./inputrules"
 
-export {
-	buildInputRules
-}
+export {buildMenuItems, buildKeymap, buildInputRules}
 
 export function xmfplusPlugins (options) {
 
-	let res = [
-		buildInputRules(options.schema),
-		keymap(baseKeymap),
-		dropCursor(),
+	let plugins = [
+    buildInputRules(options.schema),
+    keymap(buildKeymap(options.schema, options.mapKeys)),
+    keymap(baseKeymap),
+    dropCursor(),
     gapCursor()
-	]
+  ]
+  if (options.menuBar !== false)
+    plugins.push(menuBar({floating: options.floatingMenu !== false,
+                          content: options.menuContent || buildMenuItems(options.schema).fullMenu}))
+  if (options.history !== false)
+    plugins.push(history())
 
-
-	return res.concat(new Plugin({
-		props: {
-      attributes: {class: "xmfplus-ProseMirror-style"}
+  return plugins.concat(new Plugin({
+    props: {
+      attributes: {class: "ProseMirror-example-setup-style"}
     }
-	}));
+  }));
 };
 
