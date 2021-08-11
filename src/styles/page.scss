@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+html, body {
+  padding: 0;
+  margin: 0;
+}
+body, button, input, select, textarea {
+  font: 400 1em/1.8 Avenir,Tahoma,Arial,PingFang SC,Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,Helvetica,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+  .inner-content {
+    box-sizing: border-box;
+    position: relative;
+    padding-top: 58px;
+    height: 100vh;//calc(100vh - 130px);
+    background: #f7f8f8;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    overflow: hidden scroll;
+  }
+  .layout-content {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    .catalog-wrap {
+      box-sizing: border-box;
+      position: absolute;
+      z-index: 10;
+      left: 50%;
+      top: 24px;
+      bottom: 0;
+      width: 256px;
+      padding-right: 16px;
+      margin-left: -695px;
+      padding-bottom: 78px;
+    }
+    .doc-content {
+      position: relative;
+      box-sizing: border-box;
+      width: 872px;
+      padding: 60px 60px 0;
+      margin: 20px auto 78px;
+      background: #fff;
+      box-shadow: 0 1px 2px rgb(27 95 160 / 10%);
+      cursor: text;
+      .doc-cover {
+        position: relative;
+      }
+      .doc-title-wrap {
+        padding: 23px 0 9px;
+        border-bottom: 1px solid #eaeeef;
+        .doc-title {
+          width: 100%;
+          height: 50px;
+          border: none;
+          line-height: 50px;
+          vertical-align: middle;
+          font-size: 36px;
+          font-weight: 500;
+          color: #303030;
+        }
+      }
+      .editor-main {
+        .editor-menu {
+          box-sizing: border-box;
+          justify-content: space-between;
+          position: fixed;
+          left: 0;
+          right: 0;
+          z-index: 100;
+          height: 58px;
+          background: #fff;
+          border: 1px solid #eaeeef;
+          top: 0;
+        }
+      }
+    }
+  }
+}

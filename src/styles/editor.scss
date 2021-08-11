@@ -1,0 +1,18 @@
+.editor .ProseMirror {
+  min-height: 800px!important;
+  padding-top: 10px;
+  padding-bottom: 60px;
+  &:focus {
+    // outline: none;
+  }
+}
+
+.editor-menu {
+  display: flex;
+  align-items: center;
+  .editor-menu-wrap {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+  }
+}
